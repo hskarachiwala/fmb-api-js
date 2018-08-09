@@ -1,7 +1,6 @@
-import Dish from '../models/dish.models.js';
+const Dish = require('../models/dish.models.js');
 
-export function create(req, res) {
-
+exports.create = (req, res) => {
     const dish = new Dish({
         name: req.body.name,
         protein: req.body.protein,
@@ -20,9 +19,9 @@ export function create(req, res) {
     });
 };
 
-export function find(req, res) {
-    Dish.find().then(notes=>{
-        res.send(notes);
+exports.getAll = (req, res) => {
+    Dish.find().then( dishes => {
+        res.send(dishes);
     }).catch(err=>{
         res.status(500).send({
             message: err.message
@@ -30,7 +29,8 @@ export function find(req, res) {
     });
 };
 
-export function findById(req, res) {
+exports.findById = (req, res) => {
+    console.log('Route')
     Dish.findById(req.params.id).then(dish => {
         if(!res) {
             return res.status(404).send({
@@ -41,7 +41,7 @@ export function findById(req, res) {
     });
 };
 
-export function update(req, res) {
+exports.update = (req, res) => {
     Dish.findByIdAndUpdate(req.params.id, {
         name: req.body.name,
         protein: req.body.protein,
@@ -63,7 +63,7 @@ export function update(req, res) {
     });
 };
 
-export function remove(req, res) {
+exports.remove = (req, res) => {
     Dish.findByIdAndRemove(req.params.id).then(dish => {
         res.send({message: `Dish with id ${req.params.id} removed`});
     }).catch(err => {

@@ -1,17 +1,15 @@
-function dishRoute (app) {
+module.exports = (app) => {
 
-    const dishes = require('../controllers/dish.controller.js');
+    const dishController = require('../controllers/dish.controller.js');
 
-    app.post('/dishes', dishes.create);
+    app.post('/v1/dishes', dishController.create);
 
-    app.get('/dishes', dishes.find);
+    app.get('/v1/dishes', dishController.getAll);
 
-    app.get('/dishes/:id', dishes.findById);
+    app.get('/v1/dishes/:id', dishController.findById);
 
-    app.put('/dishes/:id', dishes.update);
+    app.put('/v1/dishes/:id', dishController.update);
 
-    app.delete('/dishes/:id', dishes.remove);
+    app.delete('/v1/dishes/:id', dishController.remove);
 
 }
-
-export default dishRoute;

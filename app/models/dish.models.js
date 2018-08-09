@@ -1,6 +1,6 @@
-import { Schema, model } from 'mongoose';
+const mongoose = require('mongoose');
 
-const Dish = Schema({
+const Dish = mongoose.Schema({
         name: String,
         protein: String,
         sauce: String,
@@ -8,7 +8,7 @@ const Dish = Schema({
         isVeg: Boolean,
         dishType: String
         },{
-        timestamps: true
+        timestamps: true    //add createdAt and updatedAt
     });
 
-export default model('Dish', Dish);
+module.exports = mongoose.model('Dish', Dish);

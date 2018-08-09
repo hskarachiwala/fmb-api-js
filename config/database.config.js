@@ -1,1 +1,3 @@
-export const url = 'mongodb://localhost:27017/fmb';
+module.exports = {
+    url: 'mongodb://localhost:27017/fmb'
+}
