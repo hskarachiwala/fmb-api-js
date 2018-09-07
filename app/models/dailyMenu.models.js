@@ -6,7 +6,7 @@ const DailyMenu = mongoose.Schema({
         date: String,
         hasEvent: Boolean,
         },{
-        timestamps: true    //add createdAt and updatedAt
+        timestamps: true
     });
 
 module.exports = mongoose.model('DailyMenu', DailyMenu);
