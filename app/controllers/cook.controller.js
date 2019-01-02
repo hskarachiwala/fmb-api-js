@@ -16,8 +16,8 @@ exports.create = (req, res) => {
     });
 };
 
-exports.getAll = (res) => {
-    Cook.find().then( cooks => {
+exports.getAll = (req, res) => {
+    Cook.find().then(cooks => {
         res.send(cooks);
     }).catch(err=>{
         res.status(500).send({

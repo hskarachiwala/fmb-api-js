@@ -10,13 +10,14 @@ exports.create = (req, res) => {
     dailyMenu.save().then(data => {
         res.send(data)
     }).catch(err => {
+        console.log(err);
         res.status(500).send({
             message: err.message
         });
     });
 };
 
-exports.getAll = (res) => {
+exports.getAll = (req, res) => {
     DailyMenu.find().then( cooks => {
         res.send(cooks);
     }).catch(err=>{

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const dbConfig = require('./config/database.config.js');
+const cors = require('cors');
 const appPort = 3000;
 
 /**
@@ -10,6 +11,7 @@ const appPort = 3000;
 
 var app = express();        // init the express app
 app.use(bodyParser.json())  // parse requests of content-type - application/json
+app.use(cors());              // allow cross origin
 
 // DB connection
 const mongoose = require('mongoose');

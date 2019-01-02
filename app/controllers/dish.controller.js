@@ -6,7 +6,6 @@ exports.create = (req, res) => {
         protein: req.body.protein,
         sauce: req.body.sauce,
         ingredients: req.body.ingredients,
-        dishType: req.body.dishType,
         isVeg: req.body.isVeg
     });
 
@@ -47,7 +46,6 @@ exports.update = (req, res) => {
         protein: req.body.protein,
         sauce: req.body.sauce,
         ingredients: req.body.ingredients,
-        dishType: req.body.dishType,
         isVeg: req.body.isVeg
     }, {new:true}).then(dish => {
         res.send(dish);
